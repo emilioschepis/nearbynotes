@@ -9,13 +9,12 @@ import SwiftUI
 
 struct RootView: View {
     var body: some View {
-        VStack {
-            Image(systemName: "bolt.fill")
-                .imageScale(.large)
-                .foregroundStyle(.green)
-            Text("Hello, Supabase!")
+        TabView {
+            MainView()
+                .tabItem {
+                    Label("Map", systemImage: "map.fill")
+                }
         }
-        .padding()
     }
 }
 

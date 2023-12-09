@@ -13,6 +13,9 @@
 		B667FBCD2B246CA900F2B8DE /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B667FBCC2B246CA900F2B8DE /* Preview Assets.xcassets */; };
 		B667FBD62B246EBD00F2B8DE /* Supabase in Frameworks */ = {isa = PBXBuildFile; productRef = B667FBD52B246EBD00F2B8DE /* Supabase */; };
 		B667FBDB2B246F3900F2B8DE /* Factory in Frameworks */ = {isa = PBXBuildFile; productRef = B667FBDA2B246F3900F2B8DE /* Factory */; };
+		B667FBE02B247E0100F2B8DE /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B667FBDF2B247E0100F2B8DE /* MainView.swift */; };
+		B667FBE22B247E1F00F2B8DE /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B667FBE12B247E1F00F2B8DE /* MapView.swift */; };
+		B667FBE52B247EF200F2B8DE /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B667FBE42B247EF200F2B8DE /* LocationManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +27,9 @@
 		B667FBDC2B24712800F2B8DE /* LocalConfig.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = LocalConfig.xcconfig; sourceTree = "<group>"; };
 		B667FBDD2B2471A500F2B8DE /* RemoteConfig.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = RemoteConfig.xcconfig; sourceTree = "<group>"; };
 		B667FBDE2B24720500F2B8DE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		B667FBDF2B247E0100F2B8DE /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		B667FBE12B247E1F00F2B8DE /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
+		B667FBE42B247EF200F2B8DE /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +65,7 @@
 			isa = PBXGroup;
 			children = (
 				B667FBDE2B24720500F2B8DE /* Info.plist */,
+				B667FBE32B247EE700F2B8DE /* Managers */,
 				B667FBD32B246CE700F2B8DE /* Views */,
 				B667FBC52B246CA800F2B8DE /* NearbyNotesApp.swift */,
 				B667FBC92B246CA900F2B8DE /* Assets.xcassets */,
@@ -81,8 +88,18 @@
 			isa = PBXGroup;
 			children = (
 				B667FBC72B246CA800F2B8DE /* RootView.swift */,
+				B667FBDF2B247E0100F2B8DE /* MainView.swift */,
+				B667FBE12B247E1F00F2B8DE /* MapView.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		B667FBE32B247EE700F2B8DE /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				B667FBE42B247EF200F2B8DE /* LocationManager.swift */,
+			);
+			path = Managers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -164,6 +181,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				B667FBC82B246CA800F2B8DE /* RootView.swift in Sources */,
+				B667FBE22B247E1F00F2B8DE /* MapView.swift in Sources */,
+				B667FBE52B247EF200F2B8DE /* LocationManager.swift in Sources */,
+				B667FBE02B247E0100F2B8DE /* MainView.swift in Sources */,
 				B667FBC62B246CA800F2B8DE /* NearbyNotesApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -305,6 +325,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = NearbyNotes/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = NearbyNotes;
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Your location will be used to find notes nearby.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -339,6 +360,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = NearbyNotes/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = NearbyNotes;
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Your location will be used to find notes nearby.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

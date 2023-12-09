@@ -27,4 +27,8 @@ extension Container {
         
         return Factory(self) { SupabaseClient(supabaseURL: supabaseURL, supabaseKey: supabaseKey) }.singleton
     }
+    
+    var locationManager: Factory<LocationManager> {
+        Factory(self) { LocationManager() }.singleton
+    }
 }
