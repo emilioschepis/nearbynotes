@@ -18,6 +18,7 @@ struct MainView: View {
             notes: vm.notes,
             selectedNote: $vm.selectedNote
         )
+        .sheet(item: $vm.selectedNote, content: NoteView.init)
         .task {
             try? await vm.getConfiguration()
         }

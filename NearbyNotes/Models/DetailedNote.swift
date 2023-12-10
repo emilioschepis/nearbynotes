@@ -1,5 +1,5 @@
 //
-//  Note.swift
+//  DetailedNote.swift
 //  NearbyNotes
 //
 //  Created by Emilio Schepis on 10/12/23.
@@ -8,12 +8,13 @@
 import CoreLocation
 import Foundation
 
-struct Note: Identifiable, Codable, Equatable, Hashable {
+struct DetailedNote: Identifiable, Codable, Equatable, Hashable {
     enum CodingKeys: String, CodingKey {
         case id
         case createdAt = "created_at"
         case content
         case location
+        case profile
     }
     
     static let example = Note(
@@ -27,6 +28,7 @@ struct Note: Identifiable, Codable, Equatable, Hashable {
     let createdAt: Date
     let content: String
     let location: Point
+    let profile: Profile
     
     var coordinate: CLLocationCoordinate2D {
         .init(latitude: location.coordinates[1], longitude: location.coordinates[0])

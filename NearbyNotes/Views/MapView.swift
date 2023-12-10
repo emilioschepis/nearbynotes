@@ -28,7 +28,7 @@ struct MapView: View {
             }
             
             ForEach(notes) {
-                Marker($0.content, systemImage: "text.bubble.fill", coordinate: $0.coordinate)
+                Marker("", systemImage: "text.bubble.fill", coordinate: $0.coordinate)
                     .annotationTitles(.hidden)
                     .tag($0)
             }
@@ -38,5 +38,5 @@ struct MapView: View {
 }
 
 #Preview {
-    MapView(radius: 1000, notes: [], selectedNote: .constant(nil))
+    MapView(radius: 1000, notes: [.example], selectedNote: .constant(nil))
 }

@@ -17,14 +17,14 @@ class MainViewModel: ObservableObject {
     @Published var selectedNote: Note?
     
     @MainActor func getConfiguration() async throws {
-        let configurations: [Configuration] = try await supabase.database
+        let configuration: Configuration = try await supabase.database
             .from("configurations")
             .select()
-            .limit(1)
+            .single()
             .execute()
             .value
         
-        self.configuration = configurations[0]
+        self.configuration = configuration
     }
     
     @MainActor func findNearbyNotes(location: CLLocationCoordinate2D) async throws {
