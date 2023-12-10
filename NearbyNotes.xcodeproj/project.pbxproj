@@ -18,6 +18,10 @@
 		B667FBE52B247EF200F2B8DE /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B667FBE42B247EF200F2B8DE /* LocationManager.swift */; };
 		B66CB78D2B25AB48009437FB /* AuthenticationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B66CB78C2B25AB48009437FB /* AuthenticationManager.swift */; };
 		B66CB7902B25AF7E009437FB /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B66CB78F2B25AF7E009437FB /* ProfileView.swift */; };
+		B6EF201A2B25D29D004FA179 /* Note.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6EF20192B25D29D004FA179 /* Note.swift */; };
+		B6EF201C2B25D2DE004FA179 /* Point.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6EF201B2B25D2DE004FA179 /* Point.swift */; };
+		B6EF201F2B25D5E5004FA179 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6EF201E2B25D5E5004FA179 /* MainViewModel.swift */; };
+		B6EF20222B25D7A2004FA179 /* CoreLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6EF20212B25D7A2004FA179 /* CoreLocation.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,6 +39,11 @@
 		B66CB78C2B25AB48009437FB /* AuthenticationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationManager.swift; sourceTree = "<group>"; };
 		B66CB78E2B25AF47009437FB /* NearbyNotes.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = NearbyNotes.entitlements; sourceTree = "<group>"; };
 		B66CB78F2B25AF7E009437FB /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
+		B6EF20172B25C71B004FA179 /* Castello.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Castello.gpx; sourceTree = "<group>"; };
+		B6EF20192B25D29D004FA179 /* Note.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Note.swift; sourceTree = "<group>"; };
+		B6EF201B2B25D2DE004FA179 /* Point.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Point.swift; sourceTree = "<group>"; };
+		B6EF201E2B25D5E5004FA179 /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
+		B6EF20212B25D7A2004FA179 /* CoreLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreLocation.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,7 +80,11 @@
 			children = (
 				B66CB78E2B25AF47009437FB /* NearbyNotes.entitlements */,
 				B667FBDE2B24720500F2B8DE /* Info.plist */,
+				B6EF20162B25C6A5004FA179 /* GPX */,
+				B6EF20202B25D791004FA179 /* Extensions */,
 				B667FBE32B247EE700F2B8DE /* Managers */,
+				B6EF20182B25D294004FA179 /* Models */,
+				B6EF201D2B25D5DA004FA179 /* ViewModels */,
 				B667FBD32B246CE700F2B8DE /* Views */,
 				B667FBC52B246CA800F2B8DE /* NearbyNotesApp.swift */,
 				B667FBC92B246CA900F2B8DE /* Assets.xcassets */,
@@ -108,6 +121,39 @@
 				B667FBE42B247EF200F2B8DE /* LocationManager.swift */,
 			);
 			path = Managers;
+			sourceTree = "<group>";
+		};
+		B6EF20162B25C6A5004FA179 /* GPX */ = {
+			isa = PBXGroup;
+			children = (
+				B6EF20172B25C71B004FA179 /* Castello.gpx */,
+			);
+			path = GPX;
+			sourceTree = "<group>";
+		};
+		B6EF20182B25D294004FA179 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				B6EF201B2B25D2DE004FA179 /* Point.swift */,
+				B6EF20192B25D29D004FA179 /* Note.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		B6EF201D2B25D5DA004FA179 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				B6EF201E2B25D5E5004FA179 /* MainViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		B6EF20202B25D791004FA179 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				B6EF20212B25D7A2004FA179 /* CoreLocation.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -191,7 +237,11 @@
 				B667FBC82B246CA800F2B8DE /* RootView.swift in Sources */,
 				B667FBE22B247E1F00F2B8DE /* MapView.swift in Sources */,
 				B667FBE52B247EF200F2B8DE /* LocationManager.swift in Sources */,
+				B6EF20222B25D7A2004FA179 /* CoreLocation.swift in Sources */,
+				B6EF201A2B25D29D004FA179 /* Note.swift in Sources */,
 				B66CB78D2B25AB48009437FB /* AuthenticationManager.swift in Sources */,
+				B6EF201F2B25D5E5004FA179 /* MainViewModel.swift in Sources */,
+				B6EF201C2B25D2DE004FA179 /* Point.swift in Sources */,
 				B667FBE02B247E0100F2B8DE /* MainView.swift in Sources */,
 				B66CB7902B25AF7E009437FB /* ProfileView.swift in Sources */,
 				B667FBC62B246CA800F2B8DE /* NearbyNotesApp.swift in Sources */,
