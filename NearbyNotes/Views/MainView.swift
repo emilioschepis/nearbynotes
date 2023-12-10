@@ -13,12 +13,19 @@ struct MainView: View {
     @StateObject private var vm = MainViewModel()
     
     var body: some View {
-        MapView(notes: vm.notes, selectedNote: $vm.selectedNote)
-            .task(id: locationManager.location) {
-                if let location = locationManager.location {
-                    try? await vm.findNearbyNotes(location: location)
-                }
+        MapView(
+            radius: vm.configuration?.metadata.findNearbyNotesDistance ?? 0,
+            notes: vm.notes,
+            selectedNote: $vm.selectedNote
+        )
+        .task {
+            try? await vm.getConfiguration()
+        }
+        .task(id: locationManager.location) {
+            if let location = locationManager.location {
+                try? await vm.findNearbyNotes(location: location)
             }
+        }
     }
 }
 

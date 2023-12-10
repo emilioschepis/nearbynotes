@@ -12,8 +12,20 @@ import Foundation
 class MainViewModel: ObservableObject {
     @Injected(\.supabase) private var supabase
     
+    @Published var configuration: Configuration?
     @Published var notes: [Note] = []
     @Published var selectedNote: Note?
+    
+    @MainActor func getConfiguration() async throws {
+        let configurations: [Configuration] = try await supabase.database
+            .from("configurations")
+            .select()
+            .limit(1)
+            .execute()
+            .value
+        
+        self.configuration = configurations[0]
+    }
     
     @MainActor func findNearbyNotes(location: CLLocationCoordinate2D) async throws {
         let notes: [Note] = try await supabase.database

@@ -22,6 +22,7 @@
 		B6EF201C2B25D2DE004FA179 /* Point.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6EF201B2B25D2DE004FA179 /* Point.swift */; };
 		B6EF201F2B25D5E5004FA179 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6EF201E2B25D5E5004FA179 /* MainViewModel.swift */; };
 		B6EF20222B25D7A2004FA179 /* CoreLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6EF20212B25D7A2004FA179 /* CoreLocation.swift */; };
+		B6EF20242B25FC41004FA179 /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6EF20232B25FC41004FA179 /* Configuration.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +45,7 @@
 		B6EF201B2B25D2DE004FA179 /* Point.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Point.swift; sourceTree = "<group>"; };
 		B6EF201E2B25D5E5004FA179 /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
 		B6EF20212B25D7A2004FA179 /* CoreLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreLocation.swift; sourceTree = "<group>"; };
+		B6EF20232B25FC41004FA179 /* Configuration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Configuration.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -136,6 +138,7 @@
 			children = (
 				B6EF201B2B25D2DE004FA179 /* Point.swift */,
 				B6EF20192B25D29D004FA179 /* Note.swift */,
+				B6EF20232B25FC41004FA179 /* Configuration.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -240,6 +243,7 @@
 				B6EF20222B25D7A2004FA179 /* CoreLocation.swift in Sources */,
 				B6EF201A2B25D29D004FA179 /* Note.swift in Sources */,
 				B66CB78D2B25AB48009437FB /* AuthenticationManager.swift in Sources */,
+				B6EF20242B25FC41004FA179 /* Configuration.swift in Sources */,
 				B6EF201F2B25D5E5004FA179 /* MainViewModel.swift in Sources */,
 				B6EF201C2B25D2DE004FA179 /* Point.swift in Sources */,
 				B667FBE02B247E0100F2B8DE /* MainView.swift in Sources */,

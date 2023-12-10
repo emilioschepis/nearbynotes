@@ -55,3 +55,6 @@ INSERT INTO "public"."notes" ("id", "profile_id", "created_at", "content", "loca
 ('f9910731-4682-4525-846f-b16f3941d60f', 'cb84cb88-cd53-40ee-87c5-29cbe706270f', '2023-12-10 11:59:26.894199+00', 'Content 15', 'SRID=4326;POINT(9.173270912686709 45.47349507243567)'),
 ('fa61d39b-157b-4849-a6b4-d93f7601aeff', 'cb84cb88-cd53-40ee-87c5-29cbe706270f', '2023-12-10 11:59:26.894199+00', 'Content 37', 'SRID=4326;POINT(9.183119886816309 45.47930927298864)'),
 ('fc776b3b-3f74-45f7-98b9-126cc7091c5c', 'cb84cb88-cd53-40ee-87c5-29cbe706270f', '2023-12-10 11:59:26.894199+00', 'Content 41', 'SRID=4326;POINT(9.175470612068812 45.47009152247249)');
+
+INSERT INTO "public"."configurations" ("id", "metadata") VALUES
+('edc9fb9b-4e0f-4e18-85e9-400d5a0f5cb9', '{"find_nearby_notes_distance": 300, "find_nearby_notes_limit": 50}');

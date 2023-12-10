@@ -13,6 +13,7 @@ struct MapView: View {
     @InjectedObject(\.locationManager) private var locationManager
     @State private var position: MapCameraPosition = .userLocation(fallback: .automatic)
     
+    let radius: Double
     let notes: [Note]
     @Binding var selectedNote: Note?
     
@@ -21,7 +22,7 @@ struct MapView: View {
             UserAnnotation()
             
             if let center = locationManager.location {
-                MapCircle(center: center, radius: 1000)
+                MapCircle(center: center, radius: radius)
                     .foregroundStyle(.tint.opacity(0.2))
                     .stroke(.tint, lineWidth: 2)
             }
@@ -37,5 +38,5 @@ struct MapView: View {
 }
 
 #Preview {
-    MapView(notes: [], selectedNote: .constant(nil))
+    MapView(radius: 1000, notes: [], selectedNote: .constant(nil))
 }
