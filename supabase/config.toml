@@ -50,8 +50,8 @@ double_confirm_changes = true
 enable_confirmations = false
 
 [auth.external.apple]
-enabled = false
-client_id = ""
-secret = "env(SUPABASE_AUTH_EXTERNAL_APPLE_SECRET)"
+enabled = true
+client_id = "com.emilioschepis.nearbynotes"
+secret = "-"
 redirect_uri = ""
 url = ""

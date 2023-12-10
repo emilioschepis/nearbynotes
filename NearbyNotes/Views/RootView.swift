@@ -14,6 +14,10 @@ struct RootView: View {
                 .tabItem {
                     Label("Map", systemImage: "map.fill")
                 }
+            ProfileView()
+                .tabItem {
+                    Label("Profile", systemImage: "person.fill")
+                }
         }
     }
 }

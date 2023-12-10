@@ -28,6 +28,10 @@ extension Container {
         return Factory(self) { SupabaseClient(supabaseURL: supabaseURL, supabaseKey: supabaseKey) }.singleton
     }
     
+    var authenticationManager: Factory<AuthenticationManager> {
+        Factory(self) { AuthenticationManager() }.singleton
+    }
+    
     var locationManager: Factory<LocationManager> {
         Factory(self) { LocationManager() }.singleton
     }

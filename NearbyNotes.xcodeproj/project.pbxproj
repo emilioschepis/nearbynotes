@@ -16,6 +16,8 @@
 		B667FBE02B247E0100F2B8DE /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B667FBDF2B247E0100F2B8DE /* MainView.swift */; };
 		B667FBE22B247E1F00F2B8DE /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B667FBE12B247E1F00F2B8DE /* MapView.swift */; };
 		B667FBE52B247EF200F2B8DE /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B667FBE42B247EF200F2B8DE /* LocationManager.swift */; };
+		B66CB78D2B25AB48009437FB /* AuthenticationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B66CB78C2B25AB48009437FB /* AuthenticationManager.swift */; };
+		B66CB7902B25AF7E009437FB /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B66CB78F2B25AF7E009437FB /* ProfileView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +32,9 @@
 		B667FBDF2B247E0100F2B8DE /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		B667FBE12B247E1F00F2B8DE /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 		B667FBE42B247EF200F2B8DE /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
+		B66CB78C2B25AB48009437FB /* AuthenticationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationManager.swift; sourceTree = "<group>"; };
+		B66CB78E2B25AF47009437FB /* NearbyNotes.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = NearbyNotes.entitlements; sourceTree = "<group>"; };
+		B66CB78F2B25AF7E009437FB /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,6 +69,7 @@
 		B667FBC42B246CA800F2B8DE /* NearbyNotes */ = {
 			isa = PBXGroup;
 			children = (
+				B66CB78E2B25AF47009437FB /* NearbyNotes.entitlements */,
 				B667FBDE2B24720500F2B8DE /* Info.plist */,
 				B667FBE32B247EE700F2B8DE /* Managers */,
 				B667FBD32B246CE700F2B8DE /* Views */,
@@ -90,6 +96,7 @@
 				B667FBC72B246CA800F2B8DE /* RootView.swift */,
 				B667FBDF2B247E0100F2B8DE /* MainView.swift */,
 				B667FBE12B247E1F00F2B8DE /* MapView.swift */,
+				B66CB78F2B25AF7E009437FB /* ProfileView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -97,6 +104,7 @@
 		B667FBE32B247EE700F2B8DE /* Managers */ = {
 			isa = PBXGroup;
 			children = (
+				B66CB78C2B25AB48009437FB /* AuthenticationManager.swift */,
 				B667FBE42B247EF200F2B8DE /* LocationManager.swift */,
 			);
 			path = Managers;
@@ -183,7 +191,9 @@
 				B667FBC82B246CA800F2B8DE /* RootView.swift in Sources */,
 				B667FBE22B247E1F00F2B8DE /* MapView.swift in Sources */,
 				B667FBE52B247EF200F2B8DE /* LocationManager.swift in Sources */,
+				B66CB78D2B25AB48009437FB /* AuthenticationManager.swift in Sources */,
 				B667FBE02B247E0100F2B8DE /* MainView.swift in Sources */,
+				B66CB7902B25AF7E009437FB /* ProfileView.swift in Sources */,
 				B667FBC62B246CA800F2B8DE /* NearbyNotesApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -317,6 +327,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = NearbyNotes/NearbyNotes.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"NearbyNotes/Preview Content\"";
@@ -352,6 +363,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = NearbyNotes/NearbyNotes.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"NearbyNotes/Preview Content\"";
