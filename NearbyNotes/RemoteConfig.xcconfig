@@ -8,5 +8,5 @@
 // Configuration settings file format documentation can be found at:
 // https://help.apple.com/xcode/#/dev745c5c974
 
-SUPABASE_URL =
-SUPABASE_KEY =
+SUPABASE_URL = https:/$()/mvgxoentggmsfbalxoof.supabase.co
+SUPABASE_KEY = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im12Z3hvZW50Z2dtc2ZiYWx4b29mIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MDI3MjA4NjAsImV4cCI6MjAxODI5Njg2MH0.fUJHKUrRsW6rNBoDSzESRBsAX7MANj_766Fvwkx8Tc4
