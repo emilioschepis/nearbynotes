@@ -5,6 +5,7 @@
 //  Created by Emilio Schepis on 10/12/23.
 //
 
+import Combine
 import CoreLocation
 import Factory
 import Foundation
@@ -15,6 +16,8 @@ class MainViewModel: ObservableObject {
     @Published var configuration: Configuration?
     @Published var notes: [Note] = []
     @Published var selectedNote: Note?
+    
+    var needsRefetch = PassthroughSubject<Void, Never>()
     
     @MainActor func getConfiguration() async throws {
         let configuration: Configuration = try await supabase.database

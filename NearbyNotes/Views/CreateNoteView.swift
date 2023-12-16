@@ -13,6 +13,7 @@ struct CreateNoteView: View {
     }
     
     @Environment(\.dismiss) private var dismiss
+    @EnvironmentObject private var mainVM: MainViewModel
     @StateObject private var vm = CreateNoteViewModel()
     @FocusState private var focus: Field?
     
@@ -27,6 +28,7 @@ struct CreateNoteView: View {
                 Button("Save") {
                     Task {
                         try? await vm.createNote()
+                        mainVM.needsRefetch.send(())
                         dismiss()
                     }
                 }

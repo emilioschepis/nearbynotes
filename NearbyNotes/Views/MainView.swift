@@ -35,13 +35,23 @@ struct MainView: View {
                 }
             }
             .navigationDestination(item: $vm.selectedNote, destination: NoteView.init)
-            .sheet(isPresented: $isCreating, content: CreateNoteView.init)
+            .sheet(isPresented: $isCreating) {
+                CreateNoteView()
+                    .environmentObject(vm)
+            }
             .task {
                 try? await vm.getConfiguration()
             }
             .task(id: locationManager.location) {
                 if let location = locationManager.location {
                     try? await vm.findNearbyNotes(location: location)
+                }
+            }
+            .onReceive(vm.needsRefetch) { _ in
+                Task {
+                    if let location = locationManager.location {
+                        try? await vm.findNearbyNotes(location: location)
+                    }
                 }
             }
         }
