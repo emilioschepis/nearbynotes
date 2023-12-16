@@ -13,21 +13,30 @@ struct ProfileView: View {
     @InjectedObject(\.authenticationManager) private var authenticationManager
     
     var body: some View {
-        VStack {
-            if let currentUser = authenticationManager.currentUser {
-                Group {
-                    Text("Hello, \(currentUser.id)")
-                    Button("Sign out") {
-                        authenticationManager.signOut()
+        NavigationStack {
+            VStack {
+                if let currentUser = authenticationManager.currentUser {
+                    List {
+                        NavigationLink("Your notes", destination: NoteListView.init)
+                        
+                        Section {
+                            Button("Sign out") {
+                                authenticationManager.signOut()
+                            }
+                        } footer: {
+                            Text("Signed in as \(currentUser.id)")
+                        }
                     }
+                    .navigationTitle("Profile")
+                    .navigationBarTitleDisplayMode(.inline)
+                } else {
+                    SignInWithAppleButton { request in
+                        request.requestedScopes = [.email]
+                    } onCompletion: { result in
+                        authenticationManager.handleAuthenticationResult(result)
+                    }
+                    .fixedSize()
                 }
-            } else {
-                SignInWithAppleButton { request in
-                    request.requestedScopes = [.email]
-                } onCompletion: { result in
-                    authenticationManager.handleAuthenticationResult(result)
-                }
-                .fixedSize()
             }
         }
     }
