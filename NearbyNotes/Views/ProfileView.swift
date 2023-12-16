@@ -17,7 +17,8 @@ struct ProfileView: View {
             VStack {
                 if let currentUser = authenticationManager.currentUser {
                     List {
-                        NavigationLink("Your notes", destination: NoteListView.init)
+                        NavigationLink("Your notes", destination: MyNoteListView.init)
+                        NavigationLink("Liked notes", destination: LikedNoteListView.init)
                         
                         Section {
                             Button("Sign out") {

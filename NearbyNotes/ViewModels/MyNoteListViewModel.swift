@@ -1,5 +1,5 @@
 //
-//  NoteListViewModel.swift
+//  MyNoteListViewModel.swift
 //  NearbyNotes
 //
 //  Created by Emilio Schepis on 15/12/23.
@@ -10,7 +10,7 @@ import Factory
 import Foundation
 import MapKit
 
-class NoteListViewModel: ObservableObject {
+class MyNoteListViewModel: ObservableObject {
     @Injected(\.authenticationManager) private var authenticationManager
     @Injected(\.supabase) private var supabase
     

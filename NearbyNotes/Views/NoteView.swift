@@ -55,30 +55,46 @@ struct NoteView: View {
     }
     
     var body: some View {
-        ZStack {
-            front
-            back
-        }
-        .shadow(radius: 4)
-        .padding()
-        .onTapGesture {
-            isFront = !isFront
-            if isFront {
-                withAnimation(.linear(duration: duration / 2)) {
-                    backRotation = 90
-                }
-                withAnimation(.linear(duration: duration / 2).delay(duration / 2)) {
-                    frontRotation = 0
-                }
-            } else {
-                withAnimation(.linear(duration: duration / 2)) {
-                    frontRotation = -90
-                }
-                withAnimation(.linear(duration: duration / 2).delay(duration / 2)) {
-                    backRotation = 0
+        VStack {
+            ZStack {
+                front
+                back
+            }
+            .shadow(radius: 4)
+            .onTapGesture {
+                isFront = !isFront
+                if isFront {
+                    withAnimation(.linear(duration: duration / 2)) {
+                        backRotation = 90
+                    }
+                    withAnimation(.linear(duration: duration / 2).delay(duration / 2)) {
+                        frontRotation = 0
+                    }
+                } else {
+                    withAnimation(.linear(duration: duration / 2)) {
+                        frontRotation = -90
+                    }
+                    withAnimation(.linear(duration: duration / 2).delay(duration / 2)) {
+                        backRotation = 0
+                    }
                 }
             }
+            
+            if let likes = vm.detailedNote?.likes {
+                Button {
+                    Task {
+                        try? await vm.toggleLike()
+                    }
+                } label: {
+                    Label(
+                        likes.count == 1 ? "1 like" : "\(likes.count) likes",
+                        systemImage: vm.likedByUser ? "heart.fill" : "heart"
+                    )
+                }
+                .buttonStyle(.borderedProminent)
+            }
         }
+        .padding()
         .navigationTitle("Note detail")
         .navigationBarTitleDisplayMode(.inline)
         .task {

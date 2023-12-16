@@ -15,13 +15,16 @@ struct DetailedNote: Identifiable, Codable, Equatable, Hashable {
         case content
         case location
         case profile
+        case likes
     }
     
-    static let example = Note(
+    static let example = DetailedNote(
         id: UUID().uuidString,
         createdAt: .now,
         content: "Example Note",
-        location: .init(coordinates: [9, 45])
+        location: .init(coordinates: [9, 45]),
+        profile: Profile(id: UUID().uuidString, createdAt: .now),
+        likes: [.example]
     )
     
     let id: String
@@ -29,6 +32,7 @@ struct DetailedNote: Identifiable, Codable, Equatable, Hashable {
     let content: String
     let location: Point
     let profile: Profile
+    let likes: [Like]
     
     var coordinate: CLLocationCoordinate2D {
         .init(latitude: location.coordinates[1], longitude: location.coordinates[0])

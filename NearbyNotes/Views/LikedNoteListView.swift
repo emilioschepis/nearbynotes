@@ -1,14 +1,14 @@
 //
-//  NoteListView.swift
+//  LikedNoteListView.swift
 //  NearbyNotes
 //
-//  Created by Emilio Schepis on 15/12/23.
+//  Created by Emilio Schepis on 16/12/23.
 //
 
 import SwiftUI
 
-struct NoteListView: View {
-    @StateObject private var vm = NoteListViewModel()
+struct LikedNoteListView: View {
+    @StateObject private var vm = LikedNoteListViewModel()
     
     var body: some View {
         List(vm.notes) { note in
@@ -27,5 +27,5 @@ struct NoteListView: View {
 }
 
 #Preview {
-    NoteListView()
+    LikedNoteListView()
 }

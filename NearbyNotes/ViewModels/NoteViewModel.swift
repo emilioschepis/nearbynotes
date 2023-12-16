@@ -11,10 +11,15 @@ import Foundation
 import MapKit
 
 class NoteViewModel: ObservableObject {
+    @Injected(\.authenticationManager) private var authenticationManager
     @Injected(\.supabase) private var supabase
     
     let note: Note
     @Published var detailedNote: DetailedNote?
+    
+    var likedByUser: Bool {
+        detailedNote?.likes.contains { $0.profileId.lowercased() == authenticationManager.currentUser?.id.uuidString.lowercased() } ?? false
+    }
     
     init(note: Note) {
         self.note = note
@@ -23,12 +28,33 @@ class NoteViewModel: ObservableObject {
     @MainActor func getDetailedNote() async throws {
         let detailedNote: DetailedNote = try await supabase.database
             .from("notes")
-            .select("*, profile:public_profiles(id, created_at)")
+            .select("*, profile:public_profiles(id, created_at), likes(profile_id, created_at)")
             .eq("id", value: note.id)
             .single()
             .execute()
             .value
         
         self.detailedNote = detailedNote
+    }
+    
+    @MainActor func toggleLike() async throws {
+        guard let userId = authenticationManager.currentUser?.id else {
+            return
+        }
+        
+        if likedByUser {
+            try await supabase.database
+                .from("likes")
+                .delete()
+                .match(["profile_id": userId.uuidString, "note_id": note.id])
+                .execute()
+        } else {
+            try await supabase.database
+                .from("likes")
+                .insert(["profile_id": userId.uuidString, "note_id": note.id])
+                .execute()
+        }
+        
+        try await getDetailedNote()
     }
 }
