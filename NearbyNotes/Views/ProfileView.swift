@@ -10,6 +10,7 @@ import Factory
 import SwiftUI
 
 struct ProfileView: View {
+    @Environment(\.colorScheme) var colorScheme
     @InjectedObject(\.authenticationManager) private var authenticationManager
     
     var body: some View {
@@ -25,18 +26,38 @@ struct ProfileView: View {
                                 authenticationManager.signOut()
                             }
                         } footer: {
-                            Text("Signed in as \(currentUser.id)")
+                            Text("Signed in as \(currentUser.email ?? currentUser.id.uuidString)")
                         }
                     }
                     .navigationTitle("Profile")
                     .navigationBarTitleDisplayMode(.inline)
                 } else {
-                    SignInWithAppleButton { request in
-                        request.requestedScopes = [.email]
-                    } onCompletion: { result in
-                        authenticationManager.handleAuthenticationResult(result)
+                    VStack(spacing: 16) {
+                        Text("Welcome")
+                            .font(.largeTitle)
+                            .bold()
+                        
+                        Text("Sign in to NearbyNotes to start creating your own notes for others to find!")
+                            .multilineTextAlignment(.center)
+                        
+                        VStack(spacing: 8) {
+                            Label("Create notes", systemImage: "plus.bubble.fill")
+                                .foregroundStyle(.tint)
+                                .font(.subheadline)
+                            Label("Like notes", systemImage: "heart.fill")
+                                .foregroundColor(.red)
+                                .font(.subheadline)
+                        }
+                        
+                        SignInWithAppleButton { request in
+                            request.requestedScopes = [.email]
+                        } onCompletion: { result in
+                            authenticationManager.handleAuthenticationResult(result)
+                        }
+                        .signInWithAppleButtonStyle(colorScheme == .dark ? .white : .black)
+                        .fixedSize()
                     }
-                    .fixedSize()
+                    .padding()
                 }
             }
         }

@@ -20,6 +20,7 @@ struct MyNoteListView: View {
                 }
             }
         }
+        .navigationTitle("Your notes")
         .task {
             try? await vm.getNotes()
         }

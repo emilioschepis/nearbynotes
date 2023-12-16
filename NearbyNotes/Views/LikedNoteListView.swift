@@ -20,6 +20,7 @@ struct LikedNoteListView: View {
                 }
             }
         }
+        .navigationTitle("Liked notes")
         .task {
             try? await vm.getNotes()
         }

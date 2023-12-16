@@ -6,9 +6,11 @@
 //
 
 import CoreLocation
+import Factory
 import SwiftUI
 
 struct NoteView: View {
+    @InjectedObject(\.authenticationManager) private var authenticationManager
     @StateObject private var vm: NoteViewModel
     @State private var isFront = true
     @State private var frontRotation: CGFloat = 0
@@ -60,6 +62,7 @@ struct NoteView: View {
                 front
                 back
             }
+            .foregroundStyle(.black)
             .shadow(radius: 4)
             .onTapGesture {
                 isFront = !isFront
@@ -80,7 +83,7 @@ struct NoteView: View {
                 }
             }
             
-            if let likes = vm.detailedNote?.likes {
+            if authenticationManager.currentUser != nil, let likes = vm.detailedNote?.likes  {
                 Button {
                     Task {
                         try? await vm.toggleLike()
