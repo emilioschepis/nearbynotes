@@ -23,10 +23,12 @@ struct NoteView: View {
     }
     
     var front: some View {
-        VStack {
+        ZStack(alignment: .topTrailing) {
             Text(note.content)
+                .frame(maxWidth: .infinity, maxHeight: .infinity)
+            
+            Image(systemName: "hand.tap.fill")
         }
-        .frame(maxWidth: 300, maxHeight: 300, alignment: .center)
         .padding()
         .aspectRatio(1, contentMode: .fit)
         .background(Color.yellow)
@@ -35,8 +37,6 @@ struct NoteView: View {
     
     var back: some View {
         VStack(alignment: .trailing) {
-            Spacer()
-            
             if let profile = vm.detailedNote?.profile {
                 Text(profile.id)
                     .bold()
@@ -47,8 +47,7 @@ struct NoteView: View {
                 .italic()
                 .font(.caption)
         }
-        .padding()
-        .frame(maxWidth: 300, maxHeight: 300, alignment: .bottom)
+        .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .bottomTrailing)
         .padding()
         .aspectRatio(1, contentMode: .fit)
         .background(Color.yellow)
@@ -61,6 +60,7 @@ struct NoteView: View {
             back
         }
         .shadow(radius: 4)
+        .padding()
         .onTapGesture {
             isFront = !isFront
             if isFront {
@@ -79,6 +79,8 @@ struct NoteView: View {
                 }
             }
         }
+        .navigationTitle("Note detail")
+        .navigationBarTitleDisplayMode(.inline)
         .task {
             try? await vm.getDetailedNote()
         }

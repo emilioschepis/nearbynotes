@@ -13,18 +13,20 @@ struct MainView: View {
     @StateObject private var vm = MainViewModel()
     
     var body: some View {
-        MapView(
-            radius: vm.configuration?.metadata.findNearbyNotesDistance ?? 0,
-            notes: vm.notes,
-            selectedNote: $vm.selectedNote
-        )
-        .sheet(item: $vm.selectedNote, content: NoteView.init)
-        .task {
-            try? await vm.getConfiguration()
-        }
-        .task(id: locationManager.location) {
-            if let location = locationManager.location {
-                try? await vm.findNearbyNotes(location: location)
+        NavigationStack {
+            MapView(
+                radius: vm.configuration?.metadata.findNearbyNotesDistance ?? 0,
+                notes: vm.notes,
+                selectedNote: $vm.selectedNote
+            )
+            .navigationDestination(item: $vm.selectedNote, destination: NoteView.init)
+            .task {
+                try? await vm.getConfiguration()
+            }
+            .task(id: locationManager.location) {
+                if let location = locationManager.location {
+                    try? await vm.findNearbyNotes(location: location)
+                }
             }
         }
     }
