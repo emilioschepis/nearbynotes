@@ -7,7 +7,7 @@ It is made using SwiftUI and uses the new [supabase-swift](https://github.com/su
 
 ## Public TestFlight link
 
-The app is currently being reviewed by Apple. Check back soon for a public TestFlight link!
+You can test the public beta of NearbyNotes by [joining the group on TestFlight](https://testflight.apple.com/join/R1O7W4vR)!
 
 ## Demo video
 
