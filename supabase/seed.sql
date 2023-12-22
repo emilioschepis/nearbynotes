@@ -58,3 +58,6 @@ INSERT INTO "public"."notes" ("id", "profile_id", "created_at", "content", "loca
 
 INSERT INTO "public"."configurations" ("id", "metadata") VALUES
 ('edc9fb9b-4e0f-4e18-85e9-400d5a0f5cb9', '{"find_nearby_notes_distance": 300, "find_nearby_notes_limit": 50}');
+
+INSERT INTO "storage"."buckets" ("id", "name", "owner", "created_at", "updated_at", "public", "avif_autodetection", "file_size_limit", "allowed_mime_types", "owner_id") VALUES
+('images', 'images', NULL, '2023-12-22 17:53:21.494512+00', '2023-12-22 17:53:21.494512+00', 't', 'f', NULL, '{image/*}', NULL);

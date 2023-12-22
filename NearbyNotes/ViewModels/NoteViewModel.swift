@@ -21,6 +21,14 @@ class NoteViewModel: ObservableObject {
         detailedNote?.likes.contains { $0.profileId.lowercased() == authenticationManager.currentUser?.id.uuidString.lowercased() } ?? false
     }
     
+    var imageURL: URL? {
+        guard let filePath = detailedNote?.image else {
+            return nil
+        }
+        
+        return try? supabase.storage.from("images").getPublicURL(path: filePath)
+    }
+    
     init(note: Note) {
         self.note = note
     }

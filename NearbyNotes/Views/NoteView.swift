@@ -53,6 +53,22 @@ struct NoteView: View {
         .padding()
         .aspectRatio(1, contentMode: .fit)
         .background(Color.yellow)
+        .overlay(alignment: .topLeading) {
+            if let imageURL = vm.imageURL {
+                AsyncImage(
+                    url: imageURL,
+                    content: { image in
+                        image.image?
+                            .resizable()
+                            .scaledToFit()
+                            .frame(maxWidth: 250, maxHeight: 250)
+                            .offset(x: -24)
+                            .rotationEffect(.degrees(-12))
+                        
+                    }
+                )
+            }
+        }
         .rotation3DEffect(.degrees(backRotation), axis: (x: 0, y: 1, z: 0))
     }
     

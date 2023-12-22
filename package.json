@@ -1,6 +1,6 @@
 {
   "scripts": {
-    "sb:start": "supabase start -x realtime,storage-api,imgproxy,pgadmin-schema-diff,migra,logflare,vector,pgbouncer",
+    "sb:start": "supabase start -x realtime,imgproxy,pgadmin-schema-diff,migra,logflare,vector,pgbouncer",
     "sb:stop": "supabase stop --no-backup"
   },
   "devDependencies": {
