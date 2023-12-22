@@ -18,3 +18,4 @@ https://github.com/emilioschepis/nearbynotes/assets/16031715/64451a27-18f7-445c-
 - Authentication: sign in with your Apple account to create new notes and like other people's.
 - Database: store all the notes in the PostgreSQL database.
   - PostGIS + rpc: used to query all notes within a certain distance from the user ([source](https://github.com/emilioschepis/nearbynotes/blob/main/supabase/migrations/20231210115703_create_find_notes_nearby_function.sql)).
+- Storage: store the images attached to each note, to make them even more personal. *(added after the hackathon ended)*
