@@ -17,6 +17,14 @@ class NoteViewModel: ObservableObject {
     let note: Note
     @Published var detailedNote: DetailedNote?
     
+    var createdByUser: Bool {
+        guard let userId = authenticationManager.currentUser?.id else {
+            return false
+        }
+        
+        return detailedNote?.profile.id.lowercased() == userId.uuidString.lowercased()
+    }
+    
     var likedByUser: Bool {
         detailedNote?.likes.contains { $0.profileId.lowercased() == authenticationManager.currentUser?.id.uuidString.lowercased() } ?? false
     }
@@ -64,5 +72,17 @@ class NoteViewModel: ObservableObject {
         }
         
         try await getDetailedNote()
+    }
+    
+    @MainActor func deleteNote() async throws {
+        do {
+            try await supabase.database
+                .from("notes")
+                .update(["deleted_at": Date()])
+                .eq("id", value: note.id)
+                .execute()
+        }catch{
+            print(error)
+        }
     }
 }

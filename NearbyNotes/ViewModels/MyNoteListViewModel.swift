@@ -21,6 +21,7 @@ class MyNoteListViewModel: ObservableObject {
             .from("notes")
             .select()
             .eq("profile_id", value: authenticationManager.currentUser?.id ?? "")
+            .is("deleted_at", value: "null")
             .order("created_at", ascending: false)
             .execute()
             .value

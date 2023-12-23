@@ -11,10 +11,12 @@ import SwiftUI
 
 struct NoteView: View {
     @InjectedObject(\.authenticationManager) private var authenticationManager
+    @Environment(\.dismiss) private var dismiss
     @StateObject private var vm: NoteViewModel
     @State private var isFront = true
     @State private var frontRotation: CGFloat = 0
     @State private var backRotation: CGFloat = 90
+    @State private var isDeleting = false
     private let duration: TimeInterval = 0.2
     
     let note: Note
@@ -116,8 +118,28 @@ struct NoteView: View {
         .padding()
         .navigationTitle("Note detail")
         .navigationBarTitleDisplayMode(.inline)
+        .toolbar {
+            if vm.createdByUser {
+                Menu("Options", systemImage: "ellipsis.circle") {
+                    Button("Delete", role: .destructive) {
+                        isDeleting = true
+                    }
+                }
+            }
+        }
         .task {
             try? await vm.getDetailedNote()
+        }
+        .confirmationDialog("Are you sure you want to delete this note?", isPresented: $isDeleting, titleVisibility: .visible) {
+            Button("Delete", role: .destructive) {
+                Task {
+                    try await vm.deleteNote()
+                    dismiss()
+                }
+            }
+            Button("Cancel", role: .cancel) {
+                isDeleting = false
+            }
         }
     }
 }
