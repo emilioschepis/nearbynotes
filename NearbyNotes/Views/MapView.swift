@@ -18,7 +18,7 @@ struct MapView: View {
     @Binding var selectedNote: Note?
     
     var body: some View {
-        Map(position: $position, interactionModes: [.rotate, .zoom], selection: $selectedNote) {
+        Map(position: $position, selection: $selectedNote) {
             UserAnnotation()
             
             if let center = locationManager.location {
@@ -34,6 +34,9 @@ struct MapView: View {
             }
         }
         .mapStyle(.standard(pointsOfInterest: .excludingAll))
+        .mapControls {
+            MapUserLocationButton()
+        }
     }
 }
 
